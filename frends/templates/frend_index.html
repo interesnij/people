@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles thumbnail %}
+{% load static thumbnail %}
 {% block title %}{{ category.name }}{% endblock %}
 {% block meta %}
 <meta property="og:url" content="" />
@@ -11,8 +11,8 @@
 
 <div data-barba="container" data-barba-namespace="{{ category.name }}" data-menu-current="">
     <div class="cover">
-      <div class="cover_image">
-          <img src="{{ category.image.url }}" srcset="
+        <div class="cover_image">
+            <img src="{{ category.image.url }}" srcset="
             {{ category.image|thumbnail_url:'vert_160' }} 160w,
             {{ category.image|thumbnail_url:'vert_240' }} 240w,
             {{ category.image|thumbnail_url:'vert_320' }} 320w,
@@ -24,8 +24,9 @@
             {{ category.image|thumbnail_url:'hor_1920' }} 1920w,
             {{ category.image|thumbnail_url:'hor_2240' }} 2240w,
             {{ category.image|thumbnail_url:'hor_2560' }} 2560w,
-            {{ category.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw" data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
-      </div>
+            {{ category.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw"
+                data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
+        </div>
     </div>
 
     <div class="intro margin_tb">
@@ -39,21 +40,22 @@
 
     <div class="mb_32"></div>
     {% if category.slug == "partners" %}
-      {% include 'princip/partners.html' %}
+    {% include 'princip/partners.html' %}
     {% endif %}
     {% if category.slug == "investors" %}
-      {% include 'princip/investors.html' %}
+    {% include 'princip/investors.html' %}
     {% endif %}
     <div class="mt-xxl margin_b">
         <div class="wrapper">
-            <p class="label mentor-content">{% if object_list %}{{ category.name }}{% else %}{{ category.name|cut:"ы" }}ов пока нет{% endif %}</p>
+            <p class="label mentor-content">{% if object_list %}{{ category.name }}{% else %}{{ category.name|cut:"ы"
+                }}ов пока нет{% endif %}</p>
         </div>
     </div>
 
     <div class="list margin_b">
         <div class="wrapper">
             <ul class="list_ul mentor-content" data-component="trackable" data-type="magic_hover">
-              {% for object in object_list %}
+                {% for object in object_list %}
                 <li class="list_li p-s">
                     <a class="list_link" href="{% url 'frend_detail' frend_slug=object.frend_slug %}"></a>
                     <div class="list_image" data-component="trackable" data-type="is_visible">
@@ -69,7 +71,8 @@
                           {{ object.index_image|thumbnail_url:'hor_1920' }} 1920w,
                           {{ object.index_image|thumbnail_url:'hor_2240' }} 2240w,
                           {{ object.index_image|thumbnail_url:'hor_2560' }} 2560w,
-                          {{ object.index_image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="200px" crossorigin="" />
+                          {{ object.index_image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="200px"
+                            crossorigin="" />
                     </div>
                     <dl class="list_conference">
                         <dd class="list_conference_text">
@@ -78,7 +81,7 @@
                         </dd>
                     </dl>
                 </li>
-              {% endfor %}
+                {% endfor %}
             </ul>
         </div>
     </div>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles thumbnail %}
+{% load static thumbnail %}
 {% block title %}{{ object.title }} - Новости{% endblock %}
 {% block meta %}
 <meta property="og:url" content="http://свои.рус{{ object.get_absolute_url }}" />
@@ -11,8 +11,8 @@
 
 <div data-barba="container" data-barba-namespace="{{ object.title }}" data-menu-current="">
     <div class="cover">
-      <div class="cover_image">
-          <img src="{{ banner.image.url }}" srcset="
+        <div class="cover_image">
+            <img src="{{ banner.image.url }}" srcset="
             {{ object.image2|thumbnail_url:'vert_160' }} 160w,
             {{ object.image2|thumbnail_url:'vert_240' }} 240w,
             {{ object.image2|thumbnail_url:'vert_320' }} 320w,
@@ -24,8 +24,9 @@
             {{ object.image2|thumbnail_url:'hor_1920' }} 1920w,
             {{ object.image2|thumbnail_url:'hor_2240' }} 2240w,
             {{ object.image2|thumbnail_url:'hor_2560' }} 2560w,
-            {{ object.image2|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw" data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
-      </div>
+            {{ object.image2|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw"
+                data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
+        </div>
     </div>
 
     <div class="intro margin_tb">
@@ -38,7 +39,7 @@
 
     <div class="wrapper content content_small">
         <div class="content_container">
-          {{ object.content|safe }}
+            {{ object.content|safe }}
         </div>
     </div>
     <div class="margin_tb mb_32"></div>

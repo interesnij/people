@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles thumbnail %}
+{% load static thumbnail %}
 {% block title %}Команда соцсети трезвый.рус{% endblock %}
 {% block meta %}
 <meta property="og:url" content="http://xn--b1amrk.xn--p1acf" />
@@ -9,9 +9,9 @@
 {% endblock %}
 {% block content %}
 <div data-barba="container" data-barba-namespace="home" data-menu-current="">
-<div class="cover">
-    <div class="cover_image">
-        <img src="{{ banner.image.url }}" srcset="
+    <div class="cover">
+        <div class="cover_image">
+            <img src="{{ banner.image.url }}" srcset="
           {{ banner.image|thumbnail_url:'vert_160' }} 160w,
           {{ banner.image|thumbnail_url:'vert_240' }} 240w,
           {{ banner.image|thumbnail_url:'vert_320' }} 320w,
@@ -24,39 +24,39 @@
           {{ banner.image|thumbnail_url:'hor_2240' }} 2240w,
           {{ banner.image|thumbnail_url:'hor_2560' }} 2560w,
           {{ banner.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw"
-          data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
-    </div>
-</div>
-
-<div class="site-content home">
-    <div class="home_intro margin_tb mb_32">
-        <div class="wrapper">
-            <h3 class="abstract text-appear">
-                <div class="line" style="max-width: 75rem;"><span>{{ banner.description|linebreaks }}</span></div>
-            </h3>
+                data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
         </div>
     </div>
 
-    {% include 'main/about.html' %}
-    {% if news %}
-    <div class="mb_32">
-          <div class="wrapper intro_wrapper" data-component="showtext">
-              <h1 class="intro_title margin_b text-appear">
-                  <div class="line"><span>Новости</span></div>
-              </h1>
-          </div>
-      <div class="m-xxs">
-          <div class="wrapper">
-            {% include "main/news.html" %}
-          </div>
-      </div>
-    </div>
-    {% endif %}
-  <footer class="footer pb-m pt-xxl" data-component="trackable" data-type="footer">
-      <div class="wrapper">
-          {% include 'footer.html' %}
-      </div>
-  </footer>
-</div>
+    <div class="site-content home">
+        <div class="home_intro margin_tb mb_32">
+            <div class="wrapper">
+                <h3 class="abstract text-appear">
+                    <div class="line" style="max-width: 75rem;"><span>{{ banner.description|linebreaks }}</span></div>
+                </h3>
+            </div>
+        </div>
 
-{% endblock %}
+        {% include 'main/about.html' %}
+        {% if news %}
+        <div class="mb_32">
+            <div class="wrapper intro_wrapper" data-component="showtext">
+                <h1 class="intro_title margin_b text-appear">
+                    <div class="line"><span>Новости</span></div>
+                </h1>
+            </div>
+            <div class="m-xxs">
+                <div class="wrapper">
+                    {% include "main/news.html" %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <footer class="footer pb-m pt-xxl" data-component="trackable" data-type="footer">
+            <div class="wrapper">
+                {% include 'footer.html' %}
+            </div>
+        </footer>
+    </div>
+
+    {% endblock %}

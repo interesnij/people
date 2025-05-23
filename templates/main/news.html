@@ -1,7 +1,7 @@
-{% load staticfiles humanize thumbnail %}
+{% load static humanize thumbnail %}
 
 <div class="news_list">
-{% for object in news %}
+    {% for object in news %}
     <div class="new mb-xl">
         <div class="new_container">
             <div class="new_image" data-component="trackable" data-type="image_wave" data-parallax="-0.3">
@@ -18,7 +18,8 @@
                     {{ object.image1|thumbnail_url:'hor_1920' }} 1920w,
                     {{ object.image1|thumbnail_url:'hor_2240' }} 2240w,
                     {{ object.image1|thumbnail_url:'hor_2560' }} 2560w,
-                    {{ object.image1|thumbnail_url:'hor_2880' }} 2880w" alt="" crossorigin="" sizes="(max-width: 1024px) 55vw, 500px" />
+                    {{ object.image1|thumbnail_url:'hor_2880' }} 2880w" alt="" crossorigin=""
+                    sizes="(max-width: 1024px) 55vw, 500px" />
             </div>
 
             <div class="new_inner" data-component="parallax" data-parallax="-0.3">
@@ -31,5 +32,5 @@
 
         </div>
     </div>
-  {% endfor %}
+    {% endfor %}
 </div>

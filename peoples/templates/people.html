@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles thumbnail %}
+{% load static thumbnail %}
 {% block title %}{{ object.name }} - {{ object.category|cut:'ы' }} | трезвый.рус{% endblock %}
 {% block meta %}
 <meta property="og:url" content="http://свои.рус{{ object.get_absolute_url }}" />
@@ -11,8 +11,8 @@
 
 <div data-barba="container" data-barba-namespace="{{ object.name }}" data-menu-current="">
     <div class="cover">
-      <div class="cover_image">
-          <img src="{{ object.category.image.url }}" srcset="
+        <div class="cover_image">
+            <img src="{{ object.category.image.url }}" srcset="
             {{ object.category.image|thumbnail_url:'vert_160' }} 160w,
             {{ object.category.image|thumbnail_url:'vert_240' }} 240w,
             {{ object.category.image|thumbnail_url:'vert_320' }} 320w,
@@ -24,8 +24,9 @@
             {{ object.category.image|thumbnail_url:'hor_1920' }} 1920w,
             {{ object.category.image|thumbnail_url:'hor_2240' }} 2240w,
             {{ object.category.image|thumbnail_url:'hor_2560' }} 2560w,
-            {{ object.category.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw" data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
-      </div>
+            {{ object.category.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw"
+                data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
+        </div>
     </div>
 
     <div class="intro margin_tb">
@@ -39,15 +40,15 @@
     <div class="margin_tb mb_32"></div>
     <div class="wrapper" style="margin-top: 150px;">
         <div class="about_panel margin_tb">
-          <div class="about margin_b3">
-              <div class="about_w margin_t">
-                  {{ object.content|safe }}
-              </div>
-          </div>
-          <div class="about margin_b3">
-              <div class="about_w margin_t">
-                {% if object.image %}
-                <img src="{{ object.image.url }}" class="item_img" srcset="
+            <div class="about margin_b3">
+                <div class="about_w margin_t">
+                    {{ object.content|safe }}
+                </div>
+            </div>
+            <div class="about margin_b3">
+                <div class="about_w margin_t">
+                    {% if object.image %}
+                    <img src="{{ object.image.url }}" class="item_img" srcset="
                   {{ object.image|thumbnail_url:'vert_160' }} 160w,
                   {{ object.image|thumbnail_url:'vert_240' }} 240w,
                   {{ object.image|thumbnail_url:'vert_320' }} 320w,
@@ -59,10 +60,11 @@
                   {{ object.image|thumbnail_url:'hor_1920' }} 1920w,
                   {{ object.image|thumbnail_url:'hor_2240' }} 2240w,
                   {{ object.image|thumbnail_url:'hor_2560' }} 2560w,
-                  {{ object.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw" data-component="trackable" data-type="image" data-parallax="-1.2" crossorigin="" />
-                {% endif %}
-              </div>
-          </div>
+                  {{ object.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw"
+                        data-component="trackable" data-type="image" data-parallax="-1.2" crossorigin="" />
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 
@@ -70,11 +72,11 @@
 
     <footer class="footer pb-m pt-xxl" data-component="trackable" data-type="footer">
         <div class="wrapper">
-          <div class="footer_similar margin_b3" data-component="showtext">
-              <a class="footer_similar_link h2 text-appear" href="http://свои.рус/people/{{ object.category.slug }}">
-                  <span>Все {{ object.category.name }}</span>
-              </a>
-          </div>
+            <div class="footer_similar margin_b3" data-component="showtext">
+                <a class="footer_similar_link h2 text-appear" href="http://свои.рус/people/{{ object.category.slug }}">
+                    <span>Все {{ object.category.name }}</span>
+                </a>
+            </div>
             {% include 'footer.html' %}
         </div>
     </footer>
