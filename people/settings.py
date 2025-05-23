@@ -4,7 +4,7 @@ PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '-o$t7%e8%&u2japa*el@kf1*b2)r!#ly3ba9p2lije@zpyh2x4'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
