@@ -31,8 +31,8 @@
 
     <div class="intro margin_tb">
         <div class="wrapper intro_wrapper" data-component="showtext">
-            <h2 class="intro_title margin_b text-appear">{% if object_list %}Новости{% else %}Новостей пока нет{% endif
-                %}</h2>
+            <h2 class="intro_title margin_b text-appear">
+                {% if object_list %}Новости{% else %}Новостей пока нет{% endif%}</h2>
             <div class="intro_text about_w">
                 <p>{{ banner.description|linebreaks }}</p>
             </div>
