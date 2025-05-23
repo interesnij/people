@@ -2,10 +2,10 @@
 {% load static thumbnail %}
 {% block title %}{{ object.title }} - Новости{% endblock %}
 {% block meta %}
-<meta property="og:url" content="http://свои.рус{{ object.get_absolute_url }}" />
+<meta property="og:url" content="https://people.my-demo.ru{{ object.get_absolute_url }}" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="{{ object.title }} | свои.рус" />
-<meta property="og:image" content="http://свои.рус{{ object.image1|thumbnail_url:'og' }}" />
+<meta property="og:title" content="{{ object.title }} | https://people.my-demo.ru" />
+<meta property="og:image" content="https://people.my-demo.ru{{ object.image1|thumbnail_url:'og' }}" />
 {% endblock %}
 {% block content %}
 
@@ -47,7 +47,7 @@
     <footer class="footer pb-m pt-xxl" data-component="trackable" data-type="footer">
         <div class="wrapper">
             <div class="footer_similar margin_b3" data-component="showtext">
-                <a class="footer_similar_link h2 text-appear" href="http://свои.рус/news">
+                <a class="footer_similar_link h2 text-appear" href="https://people.my-demo.ru/news">
                     <span>Все новости</span>
                 </a>
             </div>

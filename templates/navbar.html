@@ -1,55 +1,67 @@
 <header class="nav" data-component="nav menu">
     <div class="nav_wrapper wrapper">
-        <a class="nav_logo" href="http://свои.рус">
-            свои.рус
+        <a class="nav_logo" href="https://people.my-demo.ru">
+            https://people.my-demo.ru
         </a>
         <nav class="nav_list" data-component="trackable" data-type="magic_line">
             <ul class="nav_list_ul">
                 <li data-ref="nav.program">
-                    <a class="nav_list_magic" href=""><span data-component="trackable" data-type="is_visible">Команда</span></a>
+                    <a class="nav_list_magic" href=""><span data-component="trackable"
+                            data-type="is_visible">Команда</span></a>
                     <div class="nav_sublist" data-ref="nav.sublist">
                         <div class="nav_sublist_container p-l" data-ref="nav.sublistcontainer">
                             <div class="events">
 
                                 <div class="events_item m-m">
-                                    <div class="margin_b2"><p class="label">Друзья</p></div>
+                                    <div class="margin_b2">
+                                        <p class="label">Друзья</p>
+                                    </div>
                                     <ul>
-                                      {% for object in frend_categories %}
+                                        {% for object in frend_categories %}
                                         <li>
-                                          <a href="http://свои.рус/frends/{{ object.slug }}" class="event-link">
-                                            {{ object.name }}
-                                          </a>
+                                            <a href="https://people.my-demo.ru/frends/{{ object.slug }}"
+                                                class="event-link">
+                                                {{ object.name }}
+                                            </a>
                                         </li>
-                                      {% endfor %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="events_item m-m">
-                                    <div class="margin_b2"><p class="label">Команда</p></div>
+                                    <div class="margin_b2">
+                                        <p class="label">Команда</p>
+                                    </div>
                                     <ul>
-                                      {% for object in categories %}
+                                        {% for object in categories %}
                                         <li>
-                                          <a href="http://свои.рус/people/{{ object.slug }}" class="event-link">
-                                            {{ object.name }}
-                                          </a>
+                                            <a href="https://people.my-demo.ru/people/{{ object.slug }}"
+                                                class="event-link">
+                                                {{ object.name }}
+                                            </a>
                                         </li>
-                                      {% endfor %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="events_item m-m">
-                                    <div class="margin_b2"><p class="label">Документы</p></div>
-                                    <ul><li><a class="event-link">(формируется)</a></li></ul>
+                                    <div class="margin_b2">
+                                        <p class="label">Документы</p>
+                                    </div>
+                                    <ul>
+                                        <li><a class="event-link">(формируется)</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a class="nav_list_magic" href="http://свои.рус/news">
+                    <a class="nav_list_magic" href="https://people.my-demo.ru/news">
                         <span data-component="trackable" data-type="is_visible">Новости</span>
                     </a>
                 </li>
                 <li>
-                    <a class="nav_list_magic" href="http://свои.рус/about"><span data-component="trackable" data-type="is_visible">О проекте<span></a>
+                    <a class="nav_list_magic" href="https://people.my-demo.ru/about"><span data-component="trackable"
+                            data-type="is_visible">О проекте<span></a>
                 </li>
             </ul>
             <button class="nav_toggler" data-ref="menu.toggler">
@@ -62,7 +74,7 @@
         </nav>
     </div>
 
-<!-- моб меню -->
+    <!-- моб меню -->
     <div class="menu" data-ref="menu.menu">
         <div class="menu_layer" data-ref="menu.layer"></div>
         <div class="menu_panel">
@@ -82,49 +94,59 @@
                                         </div>
                                         <div class="menu_events" data-ref="menu.events">
                                             <div class="events">
-                                              <div class="events_item m-m">
-                                                  <div class="margin_b2"><p class="label">Друзья</p></div>
-                                                  <ul>
-                                                    {% for object in frend_categories %}
-                                                      <li>
-                                                        <a href="http://свои.рус/frends/{{ object.slug }}" class="event-link">
-                                                          {{ object.name }}
-                                                        </a>
-                                                      </li>
-                                                    {% endfor %}
-                                                  </ul>
-                                              </div>
-                                              <div class="events_item m-m">
-                                                  <div class="margin_b2"><p class="label">Команда</p></div>
-                                                  <ul>
-                                                    {% for object in categories %}
-                                                      <li>
-                                                        <a href="http://свои.рус/people/{{ object.slug }}" class="event-link">
-                                                          {{ object.name }}
-                                                        </a>
-                                                      </li>
-                                                    {% endfor %}
-                                                  </ul>
-                                              </div>
-                                              <div class="events_item m-m">
-                                                  <div class="margin_b2"><p class="label">Документы</p></div>
-                                                  <ul><li><a class="event-link">(формируется)</a></li></ul>
-                                              </div>
+                                                <div class="events_item m-m">
+                                                    <div class="margin_b2">
+                                                        <p class="label">Друзья</p>
+                                                    </div>
+                                                    <ul>
+                                                        {% for object in frend_categories %}
+                                                        <li>
+                                                            <a href="https://people.my-demo.ru/frends/{{ object.slug }}"
+                                                                class="event-link">
+                                                                {{ object.name }}
+                                                            </a>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                <div class="events_item m-m">
+                                                    <div class="margin_b2">
+                                                        <p class="label">Команда</p>
+                                                    </div>
+                                                    <ul>
+                                                        {% for object in categories %}
+                                                        <li>
+                                                            <a href="https://people.my-demo.ru/people/{{ object.slug }}"
+                                                                class="event-link">
+                                                                {{ object.name }}
+                                                            </a>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                <div class="events_item m-m">
+                                                    <div class="margin_b2">
+                                                        <p class="label">Документы</p>
+                                                    </div>
+                                                    <ul>
+                                                        <li><a class="event-link">(формируется)</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="menu_bigitem">
                                             <div>
-                                                <a href="http://свои.рус/news" class="h1">Новости</a>
+                                                <a href="https://people.my-demo.ru/news" class="h1">Новости</a>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="menu_bigitem">
-                                          <div>
-                                              <a class="h1" href="http://свои.рус/about">О проекте</a>
-                                          </div>
+                                            <div>
+                                                <a class="h1" href="https://people.my-demo.ru/about">О проекте</a>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
