@@ -1,0 +1,35 @@
+{% load staticfiles humanize thumbnail %}
+
+<div class="news_list">
+{% for object in news %}
+    <div class="new mb-xl">
+        <div class="new_container">
+            <div class="new_image" data-component="trackable" data-type="image_wave" data-parallax="-0.3">
+                <img src="{{ object.image1.url }}" srcset="
+                    {{ object.image1|thumbnail_url:'vert_160' }} 160w,
+                    {{ object.image1|thumbnail_url:'vert_240' }} 240w,
+                    {{ object.image1|thumbnail_url:'vert_320' }} 320w,
+                    {{ object.image1|thumbnail_url:'hor_480' }} 480w,
+                    {{ object.image1|thumbnail_url:'hor_640' }} 640w,
+                    {{ object.image1|thumbnail_url:'hor_960' }} 960w,
+                    {{ object.image1|thumbnail_url:'hor_1280' }} 1280w,
+                    {{ object.image1|thumbnail_url:'hor_1440' }} 1440w,
+                    {{ object.image1|thumbnail_url:'hor_1600' }} 1600w,
+                    {{ object.image1|thumbnail_url:'hor_1920' }} 1920w,
+                    {{ object.image1|thumbnail_url:'hor_2240' }} 2240w,
+                    {{ object.image1|thumbnail_url:'hor_2560' }} 2560w,
+                    {{ object.image1|thumbnail_url:'hor_2880' }} 2880w" alt="" crossorigin="" sizes="(max-width: 1024px) 55vw, 500px" />
+            </div>
+
+            <div class="new_inner" data-component="parallax" data-parallax="-0.3">
+                <div class="new_text mt-xs">
+                    <p class="new_name name">{{ object.title }}</p>
+                    <p class="new_role mt-xxs">{{ object.posted|naturaltime }}</p>
+                </div>
+                <a class="read_more" href="{% url 'news_detail' new_slug=object.new_slug %}"></a>
+            </div>
+
+        </div>
+    </div>
+  {% endfor %}
+</div>

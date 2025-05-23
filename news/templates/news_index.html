@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail humanize %}
+{% block title %}Новости{% endblock %}
+{% block meta %}
+<meta property="og:url" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="" />
+<meta property="og:image" content="http://свои.рус{% static 'images/og_logo.jpg' %}?quer" />
+{% endblock %}
+{% block content %}
+
+<div data-barba="container" data-barba-namespace="news" data-menu-current="">
+    <div class="cover">
+      <div class="cover_image">
+          <img src="{{ banner.image.url }}" srcset="
+            {{ banner.image|thumbnail_url:'vert_160' }} 160w,
+            {{ banner.image|thumbnail_url:'vert_240' }} 240w,
+            {{ banner.image|thumbnail_url:'vert_320' }} 320w,
+            {{ banner.image|thumbnail_url:'hor_480' }} 480w,
+            {{ banner.image|thumbnail_url:'hor_640' }} 640w,
+            {{ banner.image|thumbnail_url:'hor_960' }} 960w,
+            {{ banner.image|thumbnail_url:'hor_1440' }} 1440w,
+            {{ banner.image|thumbnail_url:'hor_1600' }} 1600w,
+            {{ banner.image|thumbnail_url:'hor_1920' }} 1920w,
+            {{ banner.image|thumbnail_url:'hor_2240' }} 2240w,
+            {{ banner.image|thumbnail_url:'hor_2560' }} 2560w,
+            {{ banner.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw" data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
+      </div>
+    </div>
+
+    <div class="intro margin_tb">
+        <div class="wrapper intro_wrapper" data-component="showtext">
+            <h2 class="intro_title margin_b text-appear">{% if object_list %}Новости{% else %}Новостей пока нет{% endif %}</h2>
+            <div class="intro_text about_w">
+                <p>{{ banner.description|linebreaks }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-xxs">
+        <div class="wrapper">
+          <div class="news_list">
+          {% for object in object_list %}
+              <div class="new mb-xl">
+                  <div class="new_container">
+                      <div class="new_image" data-component="trackable" data-type="image_wave" data-parallax="-0.3">
+                          <img src="{{ object.image1.url }}" srcset="
+                              {{ object.image1|thumbnail_url:'vert_160' }} 160w,
+                              {{ object.image1|thumbnail_url:'vert_240' }} 240w,
+                              {{ object.image1|thumbnail_url:'vert_320' }} 320w,
+                              {{ object.image1|thumbnail_url:'hor_480' }} 480w,
+                              {{ object.image1|thumbnail_url:'hor_640' }} 640w,
+                              {{ object.image1|thumbnail_url:'hor_960' }} 960w,
+                              {{ object.image1|thumbnail_url:'hor_1280' }} 1280w,
+                              {{ object.image1|thumbnail_url:'hor_1440' }} 1440w,
+                              {{ object.image1|thumbnail_url:'hor_1600' }} 1600w,
+                              {{ object.image1|thumbnail_url:'hor_1920' }} 1920w,
+                              {{ object.image1|thumbnail_url:'hor_2240' }} 2240w,
+                              {{ object.image1|thumbnail_url:'hor_2560' }} 2560w,
+                              {{ object.image1|thumbnail_url:'hor_2880' }} 2880w" alt="" crossorigin="" sizes="(max-width: 1024px) 55vw, 500px" />
+                      </div>
+
+                      <div class="new_inner" data-component="parallax" data-parallax="-0.3">
+                          <div class="new_text mt-xs">
+                              <p class="new_name name">{{ object.title }}</p>
+                              <p class="new_role mt-xxs">{{ object.posted|naturaltime }}</p>
+                          </div>
+                          <a class="read_more" href="{% url 'news_detail' new_slug=object.new_slug %}"></a>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+
+    <div class="mb_32"></div>
+
+    <footer class="footer pb-m pt-xxl" data-component="trackable" data-type="footer">
+        <div class="wrapper">
+            {% include 'footer.html' %}
+        </div>
+    </footer>
+</div>
+
+{% endblock %}

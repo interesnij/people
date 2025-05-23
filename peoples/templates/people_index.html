@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+{% block title %}{{ category.name }}{% endblock %}
+{% block meta %}
+<meta property="og:url" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="" />
+<meta property="og:image" content="http://свои.рус{% static 'images/og_logo.jpg' %}?quer" />
+{% endblock %}
+{% block content %}
+
+<div data-barba="container" data-barba-namespace="{{ category.name }}" data-menu-current="">
+    <div class="cover">
+      <div class="cover_image">
+          <img src="{{ category.image.url }}" srcset="
+            {{ category.image|thumbnail_url:'vert_160' }} 160w,
+            {{ category.image|thumbnail_url:'vert_240' }} 240w,
+            {{ category.image|thumbnail_url:'vert_320' }} 320w,
+            {{ category.image|thumbnail_url:'hor_480' }} 480w,
+            {{ category.image|thumbnail_url:'hor_640' }} 640w,
+            {{ category.image|thumbnail_url:'hor_960' }} 960w,
+            {{ category.image|thumbnail_url:'hor_1440' }} 1440w,
+            {{ category.image|thumbnail_url:'hor_1600' }} 1600w,
+            {{ category.image|thumbnail_url:'hor_1920' }} 1920w,
+            {{ category.image|thumbnail_url:'hor_2240' }} 2240w,
+            {{ category.image|thumbnail_url:'hor_2560' }} 2560w,
+            {{ category.image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="(max-width: 768px) 150vw, 100vw" data-component="trackable" data-type="cover" data-parallax="-1.2" crossorigin="" />
+      </div>
+    </div>
+
+    <div class="intro margin_tb">
+        <div class="wrapper intro_wrapper" data-component="showtext">
+            <h1 class="intro_title margin_b text-appear">{{ category.name }}</h1>
+            <div class="intro_text about_w">
+                <p>{{ category.description|linebreaks }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb_32"></div>
+
+    {% if category.slug == "leader" %}
+      {% include 'principles/leader.html' %}
+    {% endif %}
+    {% if category.slug == "promotions" %}
+      {% include 'principles/promotions.html' %}
+    {% endif %}
+    {% if category.slug == "moders" %}
+      {% include 'principles/moders.html' %}
+    {% endif %}
+    <div class="mt-xxl margin_b">
+        <div class="wrapper">
+            <p class="label mentor-content">{% if object_list %}{{ category.name }}{% else %}{{ category.name|cut:"ы" }}ов пока нет{% endif %}</p>
+        </div>
+    </div>
+
+    <div class="list margin_b">
+        <div class="wrapper">
+            <ul class="list_ul mentor-content" data-component="trackable" data-type="magic_hover">
+              {% for object in object_list %}
+                <li class="list_li p-s">
+                    <a class="list_link" href="{% url 'people_detail' people_slug=object.people_slug %}"></a>
+                    <div class="list_image" data-component="trackable" data-type="is_visible">
+                        <img src="{{ object.index_image.url }}" srcset="
+                          {{ object.index_image|thumbnail_url:'vert_160' }} 160w,
+                          {{ object.index_image|thumbnail_url:'vert_240' }} 240w,
+                          {{ object.index_image|thumbnail_url:'vert_320' }} 320w,
+                          {{ object.index_image|thumbnail_url:'hor_480' }} 480w,
+                          {{ object.index_image|thumbnail_url:'hor_640' }} 640w,
+                          {{ object.index_image|thumbnail_url:'hor_960' }} 960w,
+                          {{ object.index_image|thumbnail_url:'hor_1440' }} 1440w,
+                          {{ object.index_image|thumbnail_url:'hor_1600' }} 1600w,
+                          {{ object.index_image|thumbnail_url:'hor_1920' }} 1920w,
+                          {{ object.index_image|thumbnail_url:'hor_2240' }} 2240w,
+                          {{ object.index_image|thumbnail_url:'hor_2560' }} 2560w,
+                          {{ object.index_image|thumbnail_url:'hor_2880' }} 2880w" alt="" sizes="250px" crossorigin="" />
+                    </div>
+                    <dl class="list_conference">
+                        <dd class="list_conference_text">
+                            <p class="name">{{ object.name }}</p>
+                            <p>{{ object.description }}</p>
+                        </dd>
+                    </dl>
+                </li>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="mb_32"></div>
+
+    <footer class="footer pb-m pt-xxl" data-component="trackable" data-type="footer">
+        <div class="wrapper">
+            {% include 'footer.html' %}
+        </div>
+    </footer>
+</div>
+
+{% endblock %}
